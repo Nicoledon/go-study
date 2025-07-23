@@ -7,7 +7,8 @@ import "fmt"
 func main() {
 	// Feel free to use the main function for testing your functions
 	var e []int = []int{1 , 3 , 4 , 5}
-	fmt.Println(FindEvens(e))
+	
+	fmt.Println(SliceProduct(e))
 
 }
 
@@ -67,7 +68,11 @@ func FindEvens(e []int) []int {
 // For example, SliceProduct([]int{1, 2, 3}) => 6
 func SliceProduct(e []int) int {
 	// TODO
-	return 0
+	sum := 1
+	for i:= 0 ; i < len(e) ;i ++{
+		sum *= e[i]
+	}
+	return sum
 }
 
 // Unique finds all distinct elements in the input array.
