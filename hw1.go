@@ -6,8 +6,9 @@ import "fmt"
 
 func main() {
 	// Feel free to use the main function for testing your functions
-	fmt.Println("Hello, دنيا!")
-	fmt.Println(ParsePhone("1 2 3 4 5 6 7 8 9 0"))
+	var e []int = []int{1 , 3 , 4 , 5}
+	fmt.Println(FindEvens(e))
+
 }
 
 // ParsePhone parses a string of numbers into the format (123) 456-7890.
@@ -17,7 +18,6 @@ func main() {
 //
 //	ParsePhone("1 2 3 4 5 6 7 8 9 0") => "(123) 456-7890"
 func isnumber(number byte) bool {
-	
 	if int(number) >= 48 && int(number) <= 57 {
 		return true
 	}
@@ -54,7 +54,13 @@ func Anagram(s1, s2 string) bool {
 // Result should retain the same ordering as the input.
 func FindEvens(e []int) []int {
 	// TODO
-	return nil
+	var arr []int
+	for i:= 0 ; i < len(e) ; i++{
+		if e[i] % 2 == 0 {
+		   arr = append(arr , e[i])
+		}
+	}
+	return arr
 }
 
 // SliceProduct returns the product of all elements in the slice.
