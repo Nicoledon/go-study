@@ -31,6 +31,9 @@ func (p Price) String() string {
 	// TODO
 	var number []Price
 	count := 0
+	if p == Price(0) {
+		return "$0"
+	}
 	for p > Price(0) {
 		number = append(number, p%(Price(10)))
 		count += 1
