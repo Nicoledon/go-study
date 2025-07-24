@@ -17,8 +17,7 @@ func main() {
 	// 	"monde",
 	//}
 	//fmt.Println("Hello, %s/%s/%s!", world.English, world.Spanish, world.French)
-	var p Price = 2595
-	fmt.Println(p.String())
+
 }
 
 // Price is the cost of something in US cents.
@@ -70,7 +69,12 @@ var Prices = map[string]Price{
 // Bonus (1pt) - Use the "log" package to print the error to the user
 func RegisterItem(prices map[string]Price, item string, price Price) {
 	// TODO
-
+	ok := false
+	_, ok = prices[item]
+	if ok {
+		fmt.Println("this a warrning")
+	}
+	prices[item] = price
 }
 
 // Cart is a struct representing a shopping cart of items.
@@ -93,6 +97,11 @@ func (c *Cart) hasMilk() bool {
 // HasItem returns whether the shopping cart has the provided item name.
 func (c *Cart) HasItem(item string) bool {
 	// TODO
+	for _, r := range c.Items {
+		if r == item {
+			return true
+		}
+	}
 	return false
 }
 
@@ -101,9 +110,19 @@ func (c *Cart) HasItem(item string) bool {
 // Bonus (1pt) - Use the "log" package to print the error to the user
 func (c *Cart) AddItem(item string) {
 	// TODO
+	if c.HasItem(item) {
+		c.TotalPrice += Prices[item]
+	} else {
+		fmt.Println("error")
+	}
+
 }
 
 // Checkout displays the final cart balance and clears the cart completely.
 func (c *Cart) Checkout() {
 	// TODO
+	fmt.Println(c.TotalPrice)
+	c.TotalPrice = 0
+	var new_array []string
+	c.Items = new_array
 }
