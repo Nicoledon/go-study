@@ -3,7 +3,10 @@ package main
 // Homework 2: Object Oriented Programming
 // Due February 7, 2017 at 11:59pm
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
 	// Feel free to use the main function for testing your functions
@@ -75,7 +78,7 @@ func RegisterItem(prices map[string]Price, item string, price Price) {
 	ok := false
 	_, ok = prices[item]
 	if ok {
-		fmt.Println("this a warrning")
+		log.Println("this a warrning")
 	}
 	prices[item] = price
 }
@@ -116,7 +119,7 @@ func (c *Cart) AddItem(item string) {
 	if c.HasItem(item) {
 		c.TotalPrice += Prices[item]
 	} else {
-		fmt.Println("error")
+		log.Println("error")
 	}
 
 }
